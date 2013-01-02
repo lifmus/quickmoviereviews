@@ -1,14 +1,4 @@
-quick movie reviews
-
-each movie
-has one positive summary
-sentences - has votes
-has one negative summary
-sentences - has votes
+Quick Movie Reviews
 
 
-features to add
-review validation - no longer than 140 characters
-good design layout - pinterest
-images
-
+The idea of quick movie reviews is to quickly make decision about what movies to watch. It will use social voting to show the top three positive and top three negative reviews for each movie to present a balanced understanding of the movie. Reviews will be limited to 140 characters.
