@@ -1,0 +1,59 @@
+<div>
+	<div>
+		<h1><%=link_to @movie.name, "https://www.google.com/search?q=" + "#{@movie.name.split.join("+")}" + "+film", :target => '_blank'%></h1>
+	</div>
+	
+</div>
+
+
+<div>
+
+  
+          <% @movie.reviews.each do |review| %>
+          <% positive_reviews = [] %>
+          <% positive_reviews << review if review.kind == "positive"%>
+
+          <% negative_reviews = [] %>
+          <% negative_reviews << review if review.kind == "negative"%>
+
+
+          
+          <% positive_reviews.each do |positive_review| %>
+          <ul>
+              <li><b>+</b><%= positive_review.description %>
+          </ul>
+          <% end %> 
+
+
+          <% negative_reviews.each do |negative_review| %>
+          <ul>
+              <li><b>-</b><%= negative_review.description %>
+          </ul>
+          <% end %> 
+          <% end %>
+
+</div>
+
+
+
+
+
+<%= form_for(@review) do |f|%>
+
+  <div class= "field">
+    <%= f.label :description, "Create a new review:" %>
+    <%= f.text_area :description, :cols => "30", :rows => "10" %>
+    <%= f.hidden_field :movie_id, :value => @movie.id %>
+  </div>
+
+  <div class= "field">
+    <%= f.label :privacy, "Positive Review?" %>
+    <%= radio_button("review", "kind", "positive") %><br />
+    <%= f.label :privacy, "Negative Review?" %>
+    <%= radio_button("review", "kind", "negative") %>
+  </div>
+
+  <div class= "field">
+    <%= f.submit :class=> "btn btn-inverse" %>
+  </div>
+<% end %>

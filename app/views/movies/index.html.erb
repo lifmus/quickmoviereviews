@@ -1,0 +1,34 @@
+<h1>List of Movies</h1>
+<% @movies.each do |movie| %>
+	<div>
+		<ul>
+			<li><%= link_to movie.name, movie %>
+					<% movie.reviews.each do |review| %>
+					<% positive_reviews = [] %>
+					<% positive_reviews << review if review.kind == "positive"%>
+
+					<% negative_reviews = [] %>
+					<% negative_reviews << review if review.kind == "negative"%>
+
+
+					
+					<% positive_reviews.each do |positive_review| %>
+					<ul>
+							<li><b>+</b><%= positive_review.description %>
+					</ul>
+					<% end %>	
+
+
+					<% negative_reviews.each do |negative_review| %>
+					<ul>
+							<li><b>-</b><%= negative_review.description %>
+					</ul>
+					<% end %>	
+					<% end %>
+					
+		</ul>
+	</div>
+
+
+<% end %> 
+

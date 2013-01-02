@@ -1,0 +1,1 @@
+The purpose of this app is to give people quick reviews about movies, so they can quickly decide what movie to watch while browsing. Basically weighing the pros and cons of each movie once they have already narrowed it down to what they want to watch. 

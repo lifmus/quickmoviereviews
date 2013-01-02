@@ -1,0 +1,14 @@
+<h1>Add a new movie to the master list</h1>
+
+
+<%= form_for(@movie) do |f|%>
+
+  <div class= "field">
+    <%= f.label :name, "Enter name of movie:" %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class= "field">
+    <%= f.submit :class=> "btn btn-inverse" %>
+  </div>
+<% end %>

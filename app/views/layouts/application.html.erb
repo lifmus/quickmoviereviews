@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Quickmoviereviews</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <ul class="nav">
+            <%= link_to "Quick Movie Reviews", root_path, :class => 'brand' %>
+            <li>
+              <%= link_to "Create New Movies", new_movie_path%>
+            <% if user_signed_in? %>
+            
+            <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+            </li>
+          <% else %>
+            <li>
+              <%= link_to "Sign up", new_user_registration_path %>
+            </li>
+            <li>
+            <%= link_to "Sign in", new_user_session_path %>
+            </li>
+         <% end %> 
+
+          </ul>
+
+
+        </div>
+      </div>
+
+
+          
+
+    </div>
+
+
+<%if flash[:message]%>
+  <div class="alert alert-success"><strong><%= flash[:message]%></strong></div>
+<%elsif flash[:error]%>
+  <div class="alert alert-error"><strong><%= flash[:error]%></strong></div>
+<%elsif flash[:alert]%>
+  <div class="alert"><strong><%= flash[:alert]%></strong></div>
+<% end %>
+
+
+<%= yield %>
+
+</body>
+</html>
